@@ -1,0 +1,15 @@
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.csproj.AssemblyReference.cache
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.AssemblyInfoInputs.cache
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.AssemblyInfo.cs
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.csproj.CoreCompileInputs.cache
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/bin/Debug/net5.0/SecondProblem.deps.json
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/bin/Debug/net5.0/SecondProblem.runtimeconfig.json
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/bin/Debug/net5.0/SecondProblem.runtimeconfig.dev.json
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/bin/Debug/net5.0/SecondProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/bin/Debug/net5.0/ref/SecondProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/bin/Debug/net5.0/SecondProblem.pdb
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/ref/SecondProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.pdb
+/Users/seifelfayoumy/development/SupercellApplication/SecondProblem/obj/Debug/net5.0/SecondProblem.genruntimeconfig.cache

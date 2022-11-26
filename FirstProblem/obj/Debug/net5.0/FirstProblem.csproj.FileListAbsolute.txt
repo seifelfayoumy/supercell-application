@@ -1,0 +1,15 @@
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/bin/Debug/net5.0/FirstProblem.deps.json
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/bin/Debug/net5.0/FirstProblem.runtimeconfig.json
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/bin/Debug/net5.0/FirstProblem.runtimeconfig.dev.json
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/bin/Debug/net5.0/FirstProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/bin/Debug/net5.0/ref/FirstProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/bin/Debug/net5.0/FirstProblem.pdb
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.csproj.AssemblyReference.cache
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.AssemblyInfoInputs.cache
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.AssemblyInfo.cs
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.csproj.CoreCompileInputs.cache
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/ref/FirstProblem.dll
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.pdb
+/Users/seifelfayoumy/development/SupercellApplication/FirstProblem/obj/Debug/net5.0/FirstProblem.genruntimeconfig.cache
