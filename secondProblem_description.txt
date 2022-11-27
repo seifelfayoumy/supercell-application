@@ -1,0 +1,14 @@
+In this problem, The program gets a txt file as an input which contains all the updates recieved at the server
+(each update is a json that takes one line).
+
+The first thing the program do is to iterate through the file and create/start a thread for each json object (line).
+
+There is static variable in the program called "userValuesWithTime", this is the most important as all threads write to it.
+userValuesWithTime is a ConcurrentDictionary which is a special type of dictionary designed to be thread-safe so that all thread can write/read it.
+It should contain each user with their key values, each key value has a list with all the values and their corresponding timestamp.
+
+After all the threads finish (writing to "userValuesWithTime"), the program thens call a method called "printOutput" which created an object named output and then prinit it.
+In this method, only the values with the biggest timestamp is stored, to make sure it is the latest value.
+
+NOTE: I used a ConcurrentStack instead of a list because it is thread-safe, at the "printOutput" method I convert it to array so that I can iterate through
+it and get the maximum timestamp.

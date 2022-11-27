@@ -1,0 +1,6 @@
+{ "type": "make_friends", "user1": "alice", "user2": "bob" }
+{ "type": "make_friends", "user1": "alice", "user2": "mark" }
+{ "type": "update", "user": "alice", "timestamp": 24, "values": { "health": "200" }}
+{ "type": "update", "user": "alice", "timestamp": 25, "values": { "health": "180", "speed": "100" }}
+{ "type": "del_friends", "user1": "alice", "user2": "mark" }
+{ "type": "update", "user": "alice", "timestamp": 21, "values": { "health": "400", "speed": "200" }}

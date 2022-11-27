@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System.Threading;
 using System.Collections;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace SecondProblem
 {
@@ -18,10 +20,10 @@ namespace SecondProblem
   class Program
   {
 
-    static Dictionary<string, Dictionary<string, List<KeyValuePair<int, string>>>> userValuesWithTime = new Dictionary<string, Dictionary<string, List<KeyValuePair<int, string>>>>();
+    static ConcurrentDictionary<string, ConcurrentDictionary<string, ConcurrentStack<KeyValuePair<int, string>>>> userValuesWithTime = new ConcurrentDictionary<string, ConcurrentDictionary<string, ConcurrentStack<KeyValuePair<int, string>>>>();
     static Dictionary<string, Dictionary<string, string>> output = new Dictionary<string, Dictionary<string, string>>();
-
     static List<Thread> threads = new List<Thread>();
+    static List<Task> tasks = new List<Task>();
 
     static void Main(string[] args)
     {
@@ -33,19 +35,12 @@ namespace SecondProblem
 
         while ((s = sr.ReadLine()) != null)
         {
-          //   Thread th = new Thread(() => processIncomingUpdate(s));
-          //   threads.Add(th);
-          //   th.Start();
-          processIncomingUpdate(s);
+          var JsonLine = s;
+          tasks.Add(Task.Factory.StartNew(() => processIncomingUpdate(JsonLine)));
         }
 
-        // foreach (Thread thread in threads)
-        // {
-        //   thread.Join();
-        // }
-
+        Task.WaitAll(tasks.ToArray());
         printOutput();
-
       }
       catch (Exception e)
       {
@@ -62,37 +57,33 @@ namespace SecondProblem
         incomingValues = kvp;
       }
 
-      lock (userValuesWithTime)
+      if (!userValuesWithTime.ContainsKey(incomingUpdate.user))
       {
-        if (!userValuesWithTime.ContainsKey(incomingUpdate.user))
-        {
-          userValuesWithTime[incomingUpdate.user] = new Dictionary<string, List<KeyValuePair<int, string>>>();
-        }
-        if (!userValuesWithTime[incomingUpdate.user].ContainsKey(incomingValues.Key))
-        {
-          userValuesWithTime[incomingUpdate.user][incomingValues.Key] = new List<KeyValuePair<int, string>>();
-        }
-        userValuesWithTime[incomingUpdate.user][incomingValues.Key].Add(new KeyValuePair<int, string>(incomingUpdate.timestamp, incomingValues.Value));
+        userValuesWithTime.TryAdd(incomingUpdate.user, new ConcurrentDictionary<string, ConcurrentStack<KeyValuePair<int, string>>>());
       }
+      if (!userValuesWithTime[incomingUpdate.user].ContainsKey(incomingValues.Key))
+      {
+        userValuesWithTime[incomingUpdate.user].TryAdd(incomingValues.Key, new ConcurrentStack<KeyValuePair<int, string>>());
+      }
+      userValuesWithTime[incomingUpdate.user][incomingValues.Key].Push(new KeyValuePair<int, string>(incomingUpdate.timestamp, incomingValues.Value));
     }
 
     public static void printOutput()
     {
-      foreach (KeyValuePair<string, Dictionary<string, List<KeyValuePair<int, string>>>> kvp in userValuesWithTime)
+      foreach (KeyValuePair<string, ConcurrentDictionary<string, ConcurrentStack<KeyValuePair<int, string>>>> kvp in userValuesWithTime)
       {
         output[kvp.Key] = new Dictionary<string, string>();
-        foreach (KeyValuePair<string, List<KeyValuePair<int, string>>> kvp2 in kvp.Value)
+        foreach (KeyValuePair<string, ConcurrentStack<KeyValuePair<int, string>>> kvp2 in kvp.Value)
         {
           int maxTimeStamp = 0;
-          foreach (KeyValuePair<int, string> kvp3 in kvp2.Value)
+          foreach (KeyValuePair<int, string> kvp3 in kvp2.Value.ToArray())
           {
             if (kvp3.Key > maxTimeStamp)
             {
               maxTimeStamp = kvp3.Key;
             }
           }
-
-          foreach (KeyValuePair<int, string> kvp3 in kvp2.Value)
+          foreach (KeyValuePair<int, string> kvp3 in kvp2.Value.ToArray())
           {
             if (kvp3.Key == maxTimeStamp)
             {
@@ -102,7 +93,16 @@ namespace SecondProblem
         }
       }
 
-      Console.WriteLine(JsonSerializer.Serialize(output));
+      foreach (KeyValuePair<string, Dictionary<string, string>> kvp in output)
+      {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(kvp.Key + ":");
+        foreach (KeyValuePair<string, string> kvp2 in kvp.Value)
+        {
+          Console.ForegroundColor = ConsoleColor.Green;
+          Console.WriteLine("    " + kvp2.Key + ": " + kvp2.Value);
+        }
+      }
     }
   }
 }

@@ -1,0 +1,18 @@
+This is the instructions to build the program.
+
+This is a C# DotNet program, so you need to have dotnet installed on your machine to run the program. 
+(https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+
+To run the program simply go to the directory and type "dotnet run" then the filepath afterwards.
+
+To run the first problem on Mac, type this in the terminal: (you should write the full path to the file)
+cd FirstProblem
+dotnet run <InputFilePath>
+
+so in my machine for example, I do the following:
+cd FirstProblem
+dotnet run /Users/seifelfayoumy/development/SupercellApplication/tests/ex1/input1.txt
+
+It is the same for the second problem, for example:
+cd SecondProblem
+dotnet run /Users/seifelfayoumy/development/SupercellApplication/tests/ex2/input1.txt
